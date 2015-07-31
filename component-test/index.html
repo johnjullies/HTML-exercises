@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Component Test</title>
+    <style type="text/css">
+    	.content {
+    	  position: relative;
+		  width: 500px;
+		  margin: 0 auto;
+		}
+
+		.content #boxes {
+		  width: 320px;
+		  height: 500px;
+		  position: relative;
+		  margin: 0 auto;
+		  overflow: hidden;
+		}
+		.content #boxes .box-item {
+		  position: absolute;
+		  -webkit-transition: 0.5s;
+		  transition: 0.5s;
+		}
+
+		.nav-buttons .next,
+		.nav-buttons .prev {
+		  position: absolute;
+		  top: 50%;
+		  text-decoration: none;
+		}
+
+		.nav-buttons .next {
+		  right: 0;
+		}
+
+		.nav-buttons .prev {
+		  left: 0;
+		  display: none;
+		}
+
+		.caption {
+		  text-align: center;
+		}
+
+		body {
+		  font-family: 'Trebuchet MS', sans-serif;
+		}
+    </style>
+</head>
+
+<body>
+    <div class="content">
+		<div id="boxes"></div>
+		<div class="nav-buttons">
+			<a href="#" class="next" onclick="Slider.move('right')">next</a>
+			<a href="#" class="prev" onclick="Slider.move('left')">prev</a>
+		</div>
+	</div>
+    
+    <script type="text/javascript" src="script.js"></script>
+    <script type="text/javascript">
+    	window.onload = function(){
+    		Slider.makeSlide("caption 1", "image1.jpg"),
+    		Slider.makeSlide("caption 2", "image2.jpg"),
+    		Slider.makeSlide("caption 3", "image3.jpg"),
+    		Slider.init(320)	// 320 is the width of the image/slider
+    	};
+    </script>
+</body>
+</html>
