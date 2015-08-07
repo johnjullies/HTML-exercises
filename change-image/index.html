@@ -1,0 +1,23 @@
+<html lang="en">
+<head>
+  <meta charset="uft-8"/>
+  <title> Javascript - Changing Images with timer</title>
+  <script type="text/javascript">
+    var image_tracker = "s";
+    function change() {
+      var image = document.getElementById('sad');
+      if (image_tracker == 's'){
+        image.src = 'image2.jpg';
+        image_tracker ='x';
+      }
+      else {
+        image.src = 'image1.jpg';
+        image_tracker='s';
+      }
+    }
+  </script>
+</head>
+<body>
+  <img src="image1.jpg" alt="Smiley Sad" id="sad" onclick="setTimeout('change()',2000);">
+</body>
+</html>
