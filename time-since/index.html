@@ -1,0 +1,61 @@
+<html>
+<head>
+	<title>Time Since</title>
+
+	<style type="text/css">
+		#container { padding: 1em; font-family: mono, sans-serif; font-size: 1.5em; color: green; }
+	</style>
+</head>
+<body>
+	<p id="container"></p>
+
+	<script type="text/javascript">
+		window.onload = function() {
+			function convertMS(ms) {
+			  var y, mo, d, h, m, s;
+			  s = Math.floor(ms / 1000);
+			  m = Math.floor(s / 60);
+			  s = s % 60;
+			  h = Math.floor(m / 60);
+			  m = m % 60;
+			  d = Math.floor(h / 24);
+			  h = h % 24;
+			  mo = Math.floor(d / 30);
+			  d = d % 30;
+			  d = Math.floor(d / 7);
+			  y = Math.floor(mo / 12);
+			  mo = mo % 12;
+
+			  return {
+			    y: y,
+			    mo: mo,
+			    d: d,
+			    h: h,
+			    m: m,
+			    s: s
+			  };
+			}
+
+			function ellapsed(now, then) {
+			  var t = convertMS(now - then);
+			  var seconds = t.s;
+			  var minutes = t.m;
+			  var hours = t.h;
+			  var days = t.d;
+			  var months = t.mo;
+			  var years = t.y;
+
+			  return years + " yr " + months + " mo " + days + " d " + hours + " hr " + minutes + " min " + seconds + " sec";
+			}
+
+			function change() {
+			  c.innerHTML = ellapsed(new Date(), then);
+			}
+
+			var c = document.getElementById("container");
+			var then = new Date(2014, 5, 9, 13, 0, 0);
+			setInterval(change, 1000)
+		}
+	</script>
+</body>
+</html>
